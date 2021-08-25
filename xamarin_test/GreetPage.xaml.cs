@@ -12,14 +12,31 @@ namespace xamarin_test
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GreetPage : ContentPage
     {
+        double top;
         public GreetPage()
         {
             InitializeComponent();
+            slider.Value = 0.5;
+
+            switch (Device.RuntimePlatform)
+            {
+                case Device.iOS:
+                    top = 20;
+                    break;
+                case Device.Android:
+                case Device.UWP:
+                default:
+                    top = 30;
+                    break;
+            }
+
+            Padding = new Thickness(5, top, 0, 0);
+
+          
+
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-            DisplayAlert("Title", "Hello girl!", "OK");
-        }
+
+
     }
 }
