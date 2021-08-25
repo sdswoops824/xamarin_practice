@@ -10,7 +10,7 @@ namespace xamarin_test
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new GreetPage();
         }
 
         protected override void OnStart()
